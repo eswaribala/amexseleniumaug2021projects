@@ -1,16 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="1" total="1" passed="0">
+<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="24" started-at="2021-08-16T15:01:47 IST" finished-at="2021-08-16T15:01:47 IST">
+  <suite name="Default suite" duration-ms="7421" started-at="2021-08-16T15:15:55 IST" finished-at="2021-08-16T15:16:03 IST">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="24" started-at="2021-08-16T15:01:47 IST" finished-at="2021-08-16T15:01:47 IST">
+    <test name="Default test" duration-ms="7421" started-at="2021-08-16T15:15:55 IST" finished-at="2021-08-16T15:16:03 IST">
       <class name="com.amex.tests.PhoneSearchTestNGTest">
-        <test-method status="PASS" signature="beforeTest()[pri:0, instance:com.amex.tests.PhoneSearchTestNGTest@7e2d773b]" name="beforeTest" is-config="true" duration-ms="8" started-at="2021-08-16T15:01:47 IST" finished-at="2021-08-16T15:01:47 IST">
+        <test-method status="PASS" signature="beforeTest()[pri:0, instance:com.amex.tests.PhoneSearchTestNGTest@1a8a8f7c]" name="beforeTest" is-config="true" duration-ms="7169" started-at="2021-08-16T15:15:55 IST" finished-at="2021-08-16T15:16:02 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeTest -->
+        <test-method status="PASS" signature="canadaSearchTitleTest()[pri:0, instance:com.amex.tests.PhoneSearchTestNGTest@1a8a8f7c]" name="canadaSearchTitleTest" duration-ms="33" started-at="2021-08-16T15:16:02 IST" finished-at="2021-08-16T15:16:03 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- canadaSearchTitleTest -->
+        <test-method status="PASS" signature="afterClassTest()[pri:0, instance:com.amex.tests.PhoneSearchTestNGTest@1a8a8f7c]" name="afterClassTest" is-config="true" duration-ms="174" started-at="2021-08-16T15:16:03 IST" finished-at="2021-08-16T15:16:03 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterClassTest -->
       </class> <!-- com.amex.tests.PhoneSearchTestNGTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
