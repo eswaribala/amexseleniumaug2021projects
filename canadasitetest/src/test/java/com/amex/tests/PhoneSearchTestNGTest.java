@@ -31,24 +31,27 @@ public class PhoneSearchTestNGTest {
 		webDriver.get(baseUrl);
 		webDriver.manage().window().maximize();
 		webDriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		Assert.assertEquals(webDriver.getTitle(), "Free People Search, Reverse Phone Lookup, Business Telephone Directory | Canada411.ca");
   }
   
+ // @Test
+ // public void canadaSearchTitleTest() {
+//	  Assert.assertEquals(webDriver.getTitle(), "Free People Search, Reverse Phone Lookup, Business Telephone Directory | Canada411.ca");
+ // }
   @Test
-  public void canadaSearchTitleTest() {
-	  Assert.assertEquals(webDriver.getTitle(), "Free People Search, Reverse Phone Lookup, Business Telephone Directory | Canada411.ca");
-  }
-
   public void canadaSearchFindPeopleTest() {
+	  String result=null;
 	  element=webDriver.findElement(By.id("c411PeopleReverseWhat"));
 	  element.sendKeys("905-841-0191");
 	 element= webDriver.findElement(By.id("c411PeopleReverseFind"));
 	 element.click();
-	List<WebElement> elements=webDriver.findElements(By.xpath("//*[@id=\"ypgBody\"]/div[3]/div/div[1]/div[2]/div[1]/div[1]/h1/span[0]"));
+	List<WebElement> elements=webDriver.findElements(By.xpath("//*[@id=\"ypgBody\"]/div[3]/div/div[1]/div[2]/div[1]/div[1]/h1/span"));
     if(elements.size()!=0) {
-      element=webDriver.findElement(By.xpath("//*[@id=\"ypgBody\"]/div[3]/div/div[1]/div[2]/div[1]/div[1]/h1/span[0]"));
-      Assert.assertEquals(element.getText(), "Golf Town");
+      element=webDriver.findElement(By.xpath("//*[@id=\"ypgBody\"]/div[3]/div/div[1]/div[2]/div[1]/div[1]/h1/span"));
+       result=element.getText();
+       System.out.println(result);
     }
-    
+    Assert.assertEquals(result, "Golf Town");
   }
   
   @AfterClass
