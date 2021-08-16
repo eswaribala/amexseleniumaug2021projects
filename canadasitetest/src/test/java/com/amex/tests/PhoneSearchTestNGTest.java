@@ -2,6 +2,8 @@ package com.amex.tests;
 
 import org.testng.annotations.Test;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
+
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.concurrent.TimeUnit;
@@ -27,6 +29,7 @@ public class PhoneSearchTestNGTest {
 		String driverPath=resourceBundle.getString("webDriverPath");
 		String baseUrl=resourceBundle.getString("baseUrl");
 		System.setProperty("webdriver.chrome.driver",driverPath);
+		//WebDriverManager.chromedriver().setup();
 		webDriver=new ChromeDriver();
 		webDriver.get(baseUrl);
 		webDriver.manage().window().maximize();

@@ -5,6 +5,8 @@ import java.util.ResourceBundle;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
+
 public class PhoneSearchTest {	
 	
 	
@@ -15,7 +17,7 @@ public class PhoneSearchTest {
 
 		System.out.println(resourceBundle.getString("webDriverPath"));
 		System.out.println(resourceBundle.getString("baseUrl"));
-		
+		//WebDriverManager.chromedriver().setup();
 		String driverPath=resourceBundle.getString("webDriverPath");
 		String baseUrl=resourceBundle.getString("baseUrl");
 		System.setProperty("webdriver.chrome.driver",driverPath);
