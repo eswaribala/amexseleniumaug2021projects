@@ -7,7 +7,7 @@
         <methods>
           <include name="afterClassTest"/>
           <include name="beforeTest"/>
-          <include name="canadaSearchTitleTest"/>
+          <include name="canadaSearchFindPeopleTest"/>
         </methods>
       </class> <!-- com.amex.tests.PhoneSearchTestNGTest -->
     </classes>
