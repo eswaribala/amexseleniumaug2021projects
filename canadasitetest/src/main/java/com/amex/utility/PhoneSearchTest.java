@@ -21,6 +21,7 @@ public class PhoneSearchTest {
 		System.setProperty("webdriver.chrome.driver",driverPath);
 		WebDriver webDriver=new ChromeDriver();
 		webDriver.get(baseUrl);
+		System.out.println(webDriver.getTitle());
 		webDriver.close();
 		
 		
