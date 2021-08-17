@@ -55,6 +55,7 @@ public class PhoneSearchTestNGTest {
        System.out.println(result);
     }
     Assert.assertEquals(result, "Golf Town");
+    webDriver.close();
   }
   
   @AfterClass
