@@ -2,24 +2,20 @@
 <testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="19427" started-at="2021-08-17T15:49:38 IST" finished-at="2021-08-17T15:49:58 IST">
+  <suite name="Default suite" duration-ms="16441" started-at="2021-08-17T16:40:50 IST" finished-at="2021-08-17T16:41:06 IST">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="19427" started-at="2021-08-17T15:49:38 IST" finished-at="2021-08-17T15:49:58 IST">
-      <class name="com.amex.csvfiles.GoldenChennaiWriteCSVTest">
-        <test-method status="PASS" signature="beforeTest()[pri:0, instance:com.amex.csvfiles.GoldenChennaiWriteCSVTest@3b94d659]" name="beforeTest" is-config="true" duration-ms="6278" started-at="2021-08-17T15:49:38 IST" finished-at="2021-08-17T15:49:45 IST">
+    <test name="Default test" duration-ms="16441" started-at="2021-08-17T16:40:50 IST" finished-at="2021-08-17T16:41:06 IST">
+      <class name="com.amex.newtours.NewToursExcelRegisterTest">
+        <test-method status="PASS" signature="beforeTest()[pri:0, instance:com.amex.newtours.NewToursExcelRegisterTest@134593bf]" name="beforeTest" is-config="true" duration-ms="8944" started-at="2021-08-17T16:40:50 IST" finished-at="2021-08-17T16:40:59 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeTest -->
-        <test-method status="PASS" signature="readGoldenRateTest()[pri:0, instance:com.amex.csvfiles.GoldenChennaiWriteCSVTest@3b94d659]" name="readGoldenRateTest" duration-ms="9014" started-at="2021-08-17T15:49:45 IST" finished-at="2021-08-17T15:49:54 IST">
+        <test-method status="PASS" signature="testRegister()[pri:0, instance:com.amex.newtours.NewToursExcelRegisterTest@134593bf]" name="testRegister" duration-ms="7435" started-at="2021-08-17T16:40:59 IST" finished-at="2021-08-17T16:41:06 IST">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- readGoldenRateTest -->
-        <test-method status="PASS" signature="afterTest()[pri:0, instance:com.amex.csvfiles.GoldenChennaiWriteCSVTest@3b94d659]" name="afterTest" is-config="true" duration-ms="4099" started-at="2021-08-17T15:49:54 IST" finished-at="2021-08-17T15:49:58 IST">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterTest -->
-      </class> <!-- com.amex.csvfiles.GoldenChennaiWriteCSVTest -->
+        </test-method> <!-- testRegister -->
+      </class> <!-- com.amex.newtours.NewToursExcelRegisterTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
