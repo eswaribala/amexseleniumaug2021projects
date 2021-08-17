@@ -2,7 +2,10 @@ package com.amex.parameterizedtests;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map.Entry;
 import java.util.ResourceBundle;
 import java.util.concurrent.TimeUnit;
 import java.util.function.Function;
@@ -68,7 +71,7 @@ public class DataProviderTest {
 	}
 	
 	@Test(dataProvider = "phoneNumbers")	
-	public void canadaSearchDataProviderTest(String userName, 
+	public void canadaSearchDataProviderTest(String expected, 
 			String phoneNumber) {
 		String result=null;
 		webDriver.get(canadaSearchUrl);
@@ -86,19 +89,52 @@ public class DataProviderTest {
 	       log.info("Result"+result);
 	       
 	    }
-	    //Assert.assertEquals(result, "Golf Town");
+	    Assert.assertEquals(result, expected);
+	    webDriver.get(canadaSearchUrl);
+		
+	}
+	
+	@Test(dataProvider = "phoneNumbersExternal",dataProviderClass=PhoneNumberSupplier.class)	
+	public void canadaSearchDataProviderExternalTest(String expected, 
+			String phoneNumber) {
+		String result=null;
+		webDriver.get(canadaSearchUrl);
+		webDriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		webDriver.manage().window().maximize();
+		
+		element=webDriver.findElement(By.id("c411PeopleReverseWhat"));
+		  element.sendKeys(phoneNumber);
+		 element= webDriver.findElement(By.id("c411PeopleReverseFind"));
+		 element.click();
+		List<WebElement> elements=webDriver.findElements(By.xpath("//*[@id=\"ypgBody\"]/div[3]/div/div[1]/div[2]/div[1]/div[1]/h1/span"));
+	    if(elements.size()!=0) {
+	      element=webDriver.findElement(By.xpath("//*[@id=\"ypgBody\"]/div[3]/div/div[1]/div[2]/div[1]/div[1]/h1/span"));
+	       result=element.getText();
+	       log.info("Result"+result);
+	       
+	    }
+	    Assert.assertEquals(result, expected);
+	    webDriver.get(canadaSearchUrl);
 		
 	}
 	
 	@DataProvider(name="phoneNumbers")
     public Object[][] getDataFromDataprovider(){
-    return new Object[][] 
+		/*
+		HashMap<String,String> data=new HashMap<String,String>();
+		data.put("Golf Town", "905-841-0191" );
+		data.put("647-846-8449", "647-846-8449");
+		data.put("Royal Building Supplies Ltd", "416-244-2644" );
+		
+		return data.entrySet().iterator();
+    */
+		return new Object[][] 
     	{
-            { "User1", "905-841-0191" },
-            { "User2", "647-846-8449" },
-            { "User3", "416-244-2644" }
+            { "Golf Town", "905-841-0191" },
+            { "647-846-8449", "647-846-8449" },
+            { "Royal Building Supplies Ltd", "416-244-2644" }
         };
-
+        
     }
 	
 	@AfterTest
