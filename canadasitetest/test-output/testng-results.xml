@@ -2,24 +2,24 @@
 <testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="60315" started-at="2021-08-16T20:52:24 IST" finished-at="2021-08-16T20:53:25 IST">
+  <suite name="Suite" duration-ms="41837" started-at="2021-08-17T09:47:58 IST" finished-at="2021-08-17T09:48:40 IST">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="60315" started-at="2021-08-16T20:52:24 IST" finished-at="2021-08-16T20:53:25 IST">
+    <test name="Test" duration-ms="41837" started-at="2021-08-17T09:47:58 IST" finished-at="2021-08-17T09:48:40 IST">
       <class name="com.amex.tests.PhoneSearchTestNGTest">
-        <test-method status="PASS" signature="beforeTest()[pri:0, instance:com.amex.tests.PhoneSearchTestNGTest@687080dc]" name="beforeTest" is-config="true" duration-ms="44868" started-at="2021-08-16T20:52:24 IST" finished-at="2021-08-16T20:53:09 IST">
+        <test-method status="PASS" signature="beforeTest()[pri:0, instance:com.amex.tests.PhoneSearchTestNGTest@56dfab87]" name="beforeTest" is-config="true" duration-ms="24699" started-at="2021-08-17T09:47:58 IST" finished-at="2021-08-17T09:48:22 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeTest -->
-        <test-method status="PASS" signature="canadaSearchFindPeopleTest()[pri:0, instance:com.amex.tests.PhoneSearchTestNGTest@687080dc]" name="canadaSearchFindPeopleTest" duration-ms="11075" started-at="2021-08-16T20:53:09 IST" finished-at="2021-08-16T20:53:20 IST">
+        <test-method status="PASS" signature="canadaSearchFindPeopleTest()[pri:0, instance:com.amex.tests.PhoneSearchTestNGTest@56dfab87]" name="canadaSearchFindPeopleTest" duration-ms="16802" started-at="2021-08-17T09:48:23 IST" finished-at="2021-08-17T09:48:39 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- canadaSearchFindPeopleTest -->
-        <test-method status="PASS" signature="afterClassTest()[pri:0, instance:com.amex.tests.PhoneSearchTestNGTest@687080dc]" name="afterClassTest" is-config="true" duration-ms="4303" started-at="2021-08-16T20:53:20 IST" finished-at="2021-08-16T20:53:25 IST">
+        <test-method status="PASS" signature="afterClassTest()[pri:0, instance:com.amex.tests.PhoneSearchTestNGTest@56dfab87]" name="afterClassTest" is-config="true" duration-ms="231" started-at="2021-08-17T09:48:39 IST" finished-at="2021-08-17T09:48:40 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterClassTest -->
       </class> <!-- com.amex.tests.PhoneSearchTestNGTest -->
-    </test> <!-- Default test -->
-  </suite> <!-- Default suite -->
+    </test> <!-- Test -->
+  </suite> <!-- Suite -->
 </testng-results>
