@@ -9,8 +9,9 @@
     <classes>
       <class name="com.amex.parameterizedtests.DataProviderTest">
         <methods>
+          <include name="canadaSearchDataProviderExternalTest" invocation-numbers="1"/>
+          <include name="canadaSearchDataProviderTest" invocation-numbers="1"/>
           <include name="afterTest"/>
-          <include name="suiteParameterizedTest"/>
           <include name="beforeTest"/>
         </methods>
       </class> <!-- com.amex.parameterizedtests.DataProviderTest -->
