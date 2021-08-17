@@ -71,8 +71,21 @@ public class NewToursExcelRegisterTest {
 			webDriver.findElement(By.name("firstName")).sendKeys(user.getFirstName());
 			webDriver.findElement(By.name("lastName")).sendKeys(user.getLastName());
 			webDriver.findElement(By.name("phone")).sendKeys(user.getPhone());
-			webDriver.findElement(By.name("firstName")).sendKeys(user.getFirstName());
-			
+			webDriver.findElement(By.name("userName")).sendKeys(user.getEmail());
+			webDriver.findElement(By.name("address1")).sendKeys(user.getAddress());
+			webDriver.findElement(By.name("city")).sendKeys(user.getCity());
+			webDriver.findElement(By.name("state")).sendKeys(user.getState());
+			webDriver.findElement(By.name("postalCode")).sendKeys(user.getPostalCode());
+			webDriver.findElement(By.name("country")).sendKeys(user.getCountry());
+			webDriver.findElement(By.name("email")).sendKeys(user.getUserName());
+			webDriver.findElement(By.name("password")).sendKeys(user.getPassword());
+			webDriver.findElement(By.name("confirmPassword")).sendKeys(user.getConfirmPassword());
+			webDriver.findElement(By.name("submit")).click();
+			wait=new WebDriverWait(webDriver,10);
+			wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/div[2]/table/tbody/tr/td[2]/table/tbody/tr[4]/td/table/tbody/tr/td[2]/table/tbody/tr[3]/td/p[1]/font/b")));
+			log.info(webDriver.findElement(By.xpath("/html/body/div[2]/table/tbody/tr/td[2]/table/tbody/tr[4]/td/table/tbody/tr/td[2]/table/tbody/tr[3]/td/p[1]/font/b")).getText());
+			webDriver.get(newToursUrl);
+			webDriver.findElement(By.partialLinkText("Register")).click();
 		}
 		
 		
