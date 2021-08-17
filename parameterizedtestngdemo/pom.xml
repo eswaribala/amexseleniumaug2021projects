@@ -56,13 +56,13 @@
                         <suiteXmlFile>testng.xml</suiteXmlFile>
                         
                     </suiteXmlFiles>
-                </configuration>
-		           <!--  <configuration>
+                </configuration> 
+		             <!-- <configuration>
 		                <includes>
 		                    <include>**/${testGroup}/*Test.java</include> 
-		                     <include>com/amex/tests/*Test.java</include>
+		                     <include>com/amex/parameterizedtests/*Test.java</include>
 		                </includes>
-		            </configuration> -->
+		            </configuration>  -->
 		        </plugin>
   
   </plugins>
