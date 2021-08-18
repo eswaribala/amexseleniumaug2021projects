@@ -88,7 +88,7 @@ public class GoogleAccountTest {
 	//@DataProvider(name="userData")
 	public Map<String,Object> userDataProvider() {
 		JSONParser parser=new JSONParser();
-		Object[][] obj=null;
+		//Object[][] obj=null;
 		Map<String,Object> map=null;
 		try(FileReader fileReader=new FileReader("users.json")){
 			Object object=parser.parse(fileReader);
