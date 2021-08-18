@@ -5,7 +5,7 @@
     <classes>
       <class name="com.amex.newtours.NewToursExcelRegisterTest">
         <methods>
-          <include name="testRegister"/>
+          <include name="testDataProviderRegister"/>
           <include name="afterTest"/>
           <include name="beforeTest"/>
         </methods>
