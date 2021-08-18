@@ -16,12 +16,15 @@ import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Optional;
 import org.testng.annotations.Test;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -50,26 +53,29 @@ public class NSETest {
 	public void beforeTest() {		
 		resourceBundle=ResourceBundle.getBundle("googlesearch");	
 		driverPath=resourceBundle.getString("webDriverPath");
-		nseUrl=resourceBundle.getString("nseUrl");
+		nseUrl=resourceBundle.getString("baseUrl");
 		fileName=resourceBundle.getString("xmlFileName");
 		System.setProperty("webdriver.chrome.driver",driverPath);
 		//WebDriverManager.chromedriver().setup();
 		webDriver=new ChromeDriver();			
 	}
-	@Test
-	public void nseReportTest() {
+	@Test(dataProvider = "companyData")
+	public void nseReportTest( String v1,String v2) {
 		webDriver.get(nseUrl);
 		webDriver.manage().window().maximize();
 		WebDriverWait wait=new WebDriverWait(webDriver,10);
 		//wait.until(ExpectedConditions.visibilityOfElementLocated();
 		log.info(webDriver.getTitle());
-		readXMLData();
+		log.info(v2);
+		webDriver.findElement(By.name("q")).sendKeys(v2);
 	}
 	
-	public void readXMLData() {
+	@DataProvider(name="companyData")
+	public Object[][] readXMLData() {
 		 // Instantiate the Factory
 	      DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
-
+	      String[][] companyList=null;
+	      Object[][] compList=null;
 	      try {
 
 	          // optional, but recommended
@@ -88,15 +94,14 @@ public class NSETest {
 	          // get <staff>
 	          NodeList list = doc.getElementsByTagName("company");
 
+	          companyList=new String[list.getLength()][2];
 	          for (int temp = 0; temp < list.getLength(); temp++) {
 
 	              Node node = list.item(temp);
 
 	              if (node.getNodeType() == Node.ELEMENT_NODE) {
 
-	                  Element element = (Element) node;
-
-	                 
+	                  Element element = (Element) node;	                 
 
 	                  // get text
 	                  String sno = element.getElementsByTagName("sno").item(0).getTextContent();
@@ -108,6 +113,7 @@ public class NSETest {
 	                  log.info("Company Id : " +sno);
 	                 log.info("Symbol : " +symbol);
 	                  log.info("Name : " +name);
+	                  companyList[temp][1]=name;
 	                  
 	              }
 	          }
@@ -115,6 +121,8 @@ public class NSETest {
 	      } catch (ParserConfigurationException | SAXException | IOException e) {
 	          e.printStackTrace();
 	      }
+	      compList=companyList;
+	      return compList;
 	}
 	@AfterTest
 	public void afterTest() {
