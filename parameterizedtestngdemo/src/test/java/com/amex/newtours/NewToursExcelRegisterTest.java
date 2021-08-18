@@ -96,11 +96,11 @@ public class NewToursExcelRegisterTest {
 	*/
 	@Test(dataProvider = "customerDataProvider")
 	public void testDataProviderRegister(String v1, String v2) {
-		webDriver.get(newToursUrl);
+		//webDriver.get(newToursUrl);
 		webDriver.manage().window().maximize();
 		WebDriverWait wait=new WebDriverWait(webDriver,10);
 		//wait.until(ExpectedConditions.visibilityOfElementLocated();
-		log.info(webDriver.getTitle());	
+		//log.info(webDriver.getTitle());	
 		log.info(v1+","+v2);
 		//getCustomerDataAsDataProvider();
 		
@@ -160,21 +160,21 @@ public class NewToursExcelRegisterTest {
 		try {
 			fin=new FileInputStream("customerdata - v1.xlsx");
 			workBook=new XSSFWorkbook(fin);
-			sheet=workBook.getSheetAt(0);
+			sheet=workBook.getSheetAt(1);
 	        int totalNoOfCols =  sheet.getRow(0).getLastCellNum(); 
 			int totalNoOfRows = sheet.getLastRowNum();
 			log.info(totalNoOfCols+","+totalNoOfRows);
 			
-			arrayExcelData = new String[totalNoOfRows][totalNoOfCols];
+			arrayExcelData = new String[totalNoOfRows+1][totalNoOfCols];
 			
 			int i=0;
 			int j=0;
 			
 			itr=sheet.iterator();
 			
-			itr.next();
+			//itr.next();
 			
-			
+		
 			while(itr.hasNext()) {
 				row=itr.next();					
 				cellItr=row.cellIterator();
@@ -184,8 +184,10 @@ public class NewToursExcelRegisterTest {
 					arrayExcelData[i][j] = cell.getStringCellValue();
 					j++;
 				}
+				
 				j=0;
 				i++;
+				
 			}
 			
 			
