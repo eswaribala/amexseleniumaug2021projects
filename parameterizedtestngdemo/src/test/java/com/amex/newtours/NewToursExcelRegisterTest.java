@@ -23,6 +23,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import com.amex.csvfiles.models.User;
@@ -56,7 +57,7 @@ public class NewToursExcelRegisterTest {
 		
 		
 	}
-	
+	/*
 	@Test
 	public void testRegister() {
 		webDriver.get(newToursUrl);
@@ -91,6 +92,21 @@ public class NewToursExcelRegisterTest {
 		
 		
 	}
+	
+	*/
+	@Test(dataProvider = "customerDataProvider")
+	public void testDataProviderRegister(String v1, String v2) {
+		webDriver.get(newToursUrl);
+		webDriver.manage().window().maximize();
+		WebDriverWait wait=new WebDriverWait(webDriver,10);
+		//wait.until(ExpectedConditions.visibilityOfElementLocated();
+		log.info(webDriver.getTitle());	
+		log.info(v1+","+v2);
+		//getCustomerDataAsDataProvider();
+		
+	}
+	
+	
 	public Hashtable<Integer,User> getCustomerData(){
 		User user=null;
 		List<String> rowData=new ArrayList<String>();
@@ -137,7 +153,54 @@ public class NewToursExcelRegisterTest {
 		}
 		return userData;
 	}
+		
+	@DataProvider(name="customerDataProvider")
+	public Object[][] getCustomerDataAsDataProvider(){
+		String[][] arrayExcelData = null;
+		try {
+			fin=new FileInputStream("customerdata - v1.xlsx");
+			workBook=new XSSFWorkbook(fin);
+			sheet=workBook.getSheetAt(0);
+	        int totalNoOfCols =  sheet.getRow(0).getLastCellNum(); 
+			int totalNoOfRows = sheet.getLastRowNum();
+			log.info(totalNoOfCols+","+totalNoOfRows);
+			
+			arrayExcelData = new String[totalNoOfRows][totalNoOfCols];
+			
+			int i=0;
+			int j=0;
+			
+			itr=sheet.iterator();
+			itr.next();
+			
+			
+			while(itr.hasNext()) {
+				row=itr.next();					
+				cellItr=row.cellIterator();
+				while(cellItr.hasNext()) {
+					cell=cellItr.next();					
+					log.info(cell.getStringCellValue());
+					arrayExcelData[i][j] = cell.getStringCellValue();
+					j++;
+				}
+				j=0;
+				i++;
+			}
+			
+			
+			
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	
+		Object[][] arrayObject =arrayExcelData;
+	return arrayObject ;
+	
+}
     @AfterTest
 	public void afterTest() {
 		webDriver.close();
