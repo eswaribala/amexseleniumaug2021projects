@@ -8,11 +8,13 @@ import java.util.ResourceBundle;
 public class DBHelper {
 
 	private static ResourceBundle resourceBundle;
-	public static Connection getConnection() throws SQLException {
+	public static Connection getConnection() throws SQLException, ClassNotFoundException {
 		resourceBundle=ResourceBundle.getBundle("googlesearch");
 		String url=resourceBundle.getString("url");
 		String userName=resourceBundle.getString("username");
 		String password=resourceBundle.getString("password");
+		String driver=resourceBundle.getString("driver");
+		
 		return DriverManager.getConnection(url,userName,password);
 		
 	}

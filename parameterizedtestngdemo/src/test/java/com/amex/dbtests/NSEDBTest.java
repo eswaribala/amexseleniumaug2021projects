@@ -5,6 +5,7 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.Hashtable;
 import java.util.Iterator;
+import java.util.List;
 import java.util.ResourceBundle;
 
 import org.apache.poi.ss.usermodel.Cell;
@@ -58,7 +59,20 @@ public class NSEDBTest {
 		WebDriverWait wait=new WebDriverWait(webDriver,10);
 		//wait.until(ExpectedConditions.visibilityOfElementLocated();
 		log.info(webDriver.getTitle());
-		
+		String result=null;
+		List<WebElement> rows=webDriver.findElements(By.xpath("//*[@id=\"tab1_tableGainer\"]/table/tbody/tr"));
+		log.info("Rows"+rows.size());
+		 List<WebElement> cols=webDriver.findElements(By.xpath("//*[@id=\"tab1_tableGainer\"]/table/tbody/tr[1]/td"));
+		 log.info("Col Count"+cols.size());
+		for(int i=1;i<=rows.size();i++) {
+			for(int j=1;j<=cols.size();j++) {
+				result=webDriver.findElement(By.xpath("//*[@id=\"tab1_tableGainer\"]/table/tbody/tr["+i+"]/td["+j+"]")).getText();
+		      log.info(result);
+		      
+			   } 					
+			}
+			
+			
 	}
 	@AfterTest
 	public void afterTest() {
