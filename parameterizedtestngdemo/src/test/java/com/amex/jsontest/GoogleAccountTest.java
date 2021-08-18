@@ -24,6 +24,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import com.amex.csvfiles.models.User;
@@ -55,14 +56,21 @@ public class GoogleAccountTest {
 		webDriver=new ChromeDriver();			
 	}
 	
-	@Test
-	public void accountCreationTest() {		
+	@Test(dataProvider = "userData")
+	public void accountCreationTest(Object v1, Object v2) {		
 		webDriver.get(accountUrl);
 		webDriver.manage().window().maximize();
 		WebDriverWait wait=new WebDriverWait(webDriver,10);
 		//wait.until(ExpectedConditions.visibilityOfElementLocated();
 		log.info(webDriver.getTitle());	
+		log.info("data"+v2); 
+		
+	}
+	
+	@DataProvider(name="userData")
+	public Object[][] userDataProvider() {
 		JSONParser parser=new JSONParser();
+		Object[][] obj=null;
 		try(FileReader fileReader=new FileReader("users.json")){
 			Object object=parser.parse(fileReader);
 			JSONArray usersArrays=(JSONArray) object;
@@ -73,11 +81,16 @@ public class GoogleAccountTest {
 			}
 			usersList.stream().forEach(System.out::println);
 			ObjectMapper mapper=new ObjectMapper();
+			log.info(""+usersList.size());
 			Map<String,Object> map=null;
+			obj = new Object[usersList.size()][2];
+			int i=0;
 			for(String user:usersList)
 			{
 			  map=mapper.readValue(user, Map.class);
+			  obj[i][1]=map;
 			  log.info(map.values().toString());
+			  i++;
 			}
 			
 			
@@ -91,7 +104,7 @@ public class GoogleAccountTest {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+		return obj;
 	}
 
     @AfterTest
