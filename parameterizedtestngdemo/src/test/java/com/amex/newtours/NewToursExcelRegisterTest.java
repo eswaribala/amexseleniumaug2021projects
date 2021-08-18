@@ -95,15 +95,47 @@ public class NewToursExcelRegisterTest {
 	
 	
 	@Test(dataProvider = "customerDataProvider")
-	public void testDataProviderRegister(String v1, String v2) {
-		//webDriver.get(newToursUrl);
+	public void testDataProviderRegister(Object v1) {
+		webDriver.get(newToursUrl);
 		webDriver.manage().window().maximize();
 		WebDriverWait wait=new WebDriverWait(webDriver,10);
 		//wait.until(ExpectedConditions.visibilityOfElementLocated();
-		//log.info(webDriver.getTitle());	
-		log.info(v1+","+v2);
-		
-		
+		log.info(webDriver.getTitle());	
+		Hashtable<Integer,User> testData=getCustomerData();
+		webDriver.findElement(By.partialLinkText("Register")).click();
+		log.info("data"+v1.toString());
+		String[] data=v1.toString().split(",");
+		User user=new User();
+		user.setFirstName(data[0]);
+		user.setLastName(data[1]);
+		user.setPhone(data[2]);
+		user.setEmail(data[3]);
+		user.setAddress(data[4]);
+		user.setCity(data[5]);
+		user.setState(data[6]);
+		user.setPostalCode(data[7]);
+		user.setCountry(data[8]);
+		user.setUserName(data[9]);
+		user.setPassword(data[10]);
+		user.setConfirmPassword(data[11]);
+		webDriver.findElement(By.name("firstName")).sendKeys(user.getFirstName());
+		webDriver.findElement(By.name("lastName")).sendKeys(user.getLastName());
+		webDriver.findElement(By.name("phone")).sendKeys(user.getPhone());
+		webDriver.findElement(By.name("userName")).sendKeys(user.getEmail());
+		webDriver.findElement(By.name("address1")).sendKeys(user.getAddress());
+		webDriver.findElement(By.name("city")).sendKeys(user.getCity());
+		webDriver.findElement(By.name("state")).sendKeys(user.getState());
+		webDriver.findElement(By.name("postalCode")).sendKeys(user.getPostalCode());
+		webDriver.findElement(By.name("country")).sendKeys(user.getCountry());
+		webDriver.findElement(By.name("email")).sendKeys(user.getUserName());
+		webDriver.findElement(By.name("password")).sendKeys(user.getPassword());
+		webDriver.findElement(By.name("confirmPassword")).sendKeys(user.getConfirmPassword());
+		webDriver.findElement(By.name("submit")).click();
+		//wait=new WebDriverWait(webDriver,10);
+		//wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/div[2]/table/tbody/tr/td[2]/table/tbody/tr[4]/td/table/tbody/tr/td[2]/table/tbody/tr[3]/td/p[1]/font/b")));
+		//log.info(webDriver.findElement(By.xpath("/html/body/div[2]/table/tbody/tr/td[2]/table/tbody/tr[4]/td/table/tbody/tr/td[2]/table/tbody/tr[3]/td/p[1]/font/b")).getText());
+		//webDriver.get(newToursUrl);
+		//webDriver.findElement(By.partialLinkText("Register")).click();
 	}
 	
 	
@@ -155,24 +187,25 @@ public class NewToursExcelRegisterTest {
 	}
 		
 	@DataProvider(name="customerDataProvider")
-	public Object[][] getCustomerDataAsDataProvider(){
-		String[][] arrayExcelData = null;
+	public Object[] getCustomerDataAsDataProvider(){
+		String[] arrayExcelData = null;
+		List<String> userData=null;
 		try {
-			fin=new FileInputStream("customerdata - v1.xlsx");
+			fin=new FileInputStream(fileName);
 			workBook=new XSSFWorkbook(fin);
-			sheet=workBook.getSheetAt(1);
+			sheet=workBook.getSheetAt(0);
 	        int totalNoOfCols =  sheet.getRow(0).getLastCellNum(); 
 			int totalNoOfRows = sheet.getLastRowNum();
 			log.info(totalNoOfCols+","+totalNoOfRows);
 			
-			arrayExcelData = new String[totalNoOfRows+1][totalNoOfCols];
-			
+			arrayExcelData = new String[totalNoOfRows];
+			userData=new ArrayList<String>();
 			int i=0;
 			int j=0;
 			
 			itr=sheet.iterator();
 			
-			//itr.next();
+			itr.next();
 			
 		
 			while(itr.hasNext()) {
@@ -180,14 +213,14 @@ public class NewToursExcelRegisterTest {
 				cellItr=row.cellIterator();
 				while(cellItr.hasNext()) {
 					cell=cellItr.next();					
-					log.info(cell.getStringCellValue());
-					arrayExcelData[i][j] = cell.getStringCellValue();
-					j++;
+					//log.info(cell.getStringCellValue());
+					userData.add(cell.getStringCellValue());
+					
 				}
 				
-				j=0;
+				arrayExcelData[i]=userData.toString();
 				i++;
-				
+				userData=new ArrayList<String>();
 			}
 			
 			
@@ -200,7 +233,7 @@ public class NewToursExcelRegisterTest {
 			e.printStackTrace();
 		}
 	
-		Object[][] arrayObject =arrayExcelData;
+		Object[] arrayObject =arrayExcelData;
 	return arrayObject ;
 	
 }

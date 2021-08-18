@@ -60,8 +60,8 @@ public class GoogleAccountTest {
 		webDriver=new ChromeDriver();			
 	}
 	
-	@Test
-	public void accountCreationTest() {		
+	@Test(dataProvider ="userData" )
+	public void accountCreationTest(Object v1) {		
 		webDriver.get(accountUrl);
 		webDriver.manage().window().maximize();
 		WebDriverWait wait=new WebDriverWait(webDriver,10);
@@ -69,9 +69,9 @@ public class GoogleAccountTest {
 		log.info(webDriver.getTitle());	
 		GoogleUser user=null;
 		Gson gson=new Gson();
-		for(Object data:userDataProvider().values()) {
+		//for(Object data:userDataProvider().values()) {
 			//log.info(data.toString());
-			user=gson.fromJson(data.toString(), GoogleUser.class);
+			user=gson.fromJson(v1.toString(), GoogleUser.class);
 			log.info(user.getFirstName());
 			webDriver.findElement(By.name("firstName")).sendKeys(user.getFirstName());
 			webDriver.findElement(By.name("lastName")).sendKeys(user.getFirstName());
@@ -82,13 +82,13 @@ public class GoogleAccountTest {
 			webDriver.get(accountUrl);
 			webDriver.manage().window().maximize();
 			wait=new WebDriverWait(webDriver,10);
-		}
+		//}
 	}
 	
-	//@DataProvider(name="userData")
-	public Map<String,Object> userDataProvider() {
+	@DataProvider(name="userData")
+	public Object[] userDataProvider() {
 		JSONParser parser=new JSONParser();
-		//Object[][] obj=null;
+		Object[] obj=null;
 		Map<String,Object> map=null;
 		try(FileReader fileReader=new FileReader("users.json")){
 			Object object=parser.parse(fileReader);
@@ -102,13 +102,13 @@ public class GoogleAccountTest {
 			ObjectMapper mapper=new ObjectMapper();
 			//log.info(""+usersList.size());
 			
-			//obj = new Object[usersList.size()][2];
+			obj = new Object[usersList.size()];
 			int i=0;
 			map=new HashMap<String,Object>();
 			for(String user:usersList)
 			{
 			  map.put(String.valueOf(i),mapper.readValue(user, Map.class));
-			//  obj[i][1]=map;
+			  obj[i]=user;
 			 // log.info(map.values().toString());
 			  i++;
 			}
@@ -124,7 +124,7 @@ public class GoogleAccountTest {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return map;
+		return obj;
 	}
 
     @AfterTest
