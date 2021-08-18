@@ -57,7 +57,7 @@ public class NewToursExcelRegisterTest {
 		
 		
 	}
-	/*
+	
 	@Test
 	public void testRegister() {
 		webDriver.get(newToursUrl);
@@ -93,7 +93,7 @@ public class NewToursExcelRegisterTest {
 		
 	}
 	
-	*/
+	
 	@Test(dataProvider = "customerDataProvider")
 	public void testDataProviderRegister(String v1, String v2) {
 		//webDriver.get(newToursUrl);
@@ -102,7 +102,7 @@ public class NewToursExcelRegisterTest {
 		//wait.until(ExpectedConditions.visibilityOfElementLocated();
 		//log.info(webDriver.getTitle());	
 		log.info(v1+","+v2);
-		//getCustomerDataAsDataProvider();
+		
 		
 	}
 	
