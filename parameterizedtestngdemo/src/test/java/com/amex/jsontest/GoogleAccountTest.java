@@ -5,6 +5,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Hashtable;
 import java.util.Iterator;
 import java.util.List;
@@ -18,6 +19,7 @@ import org.apache.poi.ss.usermodel.Workbook;
 import org.json.simple.JSONArray;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -27,8 +29,10 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
+import com.amex.csvfiles.models.GoogleUser;
 import com.amex.csvfiles.models.User;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.gson.Gson;
 
 import lombok.extern.slf4j.Slf4j;
 @Slf4j
@@ -56,40 +60,56 @@ public class GoogleAccountTest {
 		webDriver=new ChromeDriver();			
 	}
 	
-	@Test(dataProvider = "userData")
-	public void accountCreationTest(Object v1, Object v2) {		
+	@Test
+	public void accountCreationTest() {		
 		webDriver.get(accountUrl);
 		webDriver.manage().window().maximize();
 		WebDriverWait wait=new WebDriverWait(webDriver,10);
 		//wait.until(ExpectedConditions.visibilityOfElementLocated();
 		log.info(webDriver.getTitle());	
-		log.info("data"+v2); 
-		
+		GoogleUser user=null;
+		Gson gson=new Gson();
+		for(Object data:userDataProvider().values()) {
+			//log.info(data.toString());
+			user=gson.fromJson(data.toString(), GoogleUser.class);
+			log.info(user.getFirstName());
+			webDriver.findElement(By.name("firstName")).sendKeys(user.getFirstName());
+			webDriver.findElement(By.name("lastName")).sendKeys(user.getFirstName());
+			webDriver.findElement(By.name("Username")).sendKeys(user.getUserName());
+			webDriver.findElement(By.name("Passwd")).sendKeys(user.getPassword());
+			webDriver.findElement(By.name("ConfirmPasswd")).sendKeys(user.getConfirmPassword());
+			webDriver.findElement(By.id("i3")).click();
+			webDriver.get(accountUrl);
+			webDriver.manage().window().maximize();
+			wait=new WebDriverWait(webDriver,10);
+		}
 	}
 	
-	@DataProvider(name="userData")
-	public Object[][] userDataProvider() {
+	//@DataProvider(name="userData")
+	public Map<String,Object> userDataProvider() {
 		JSONParser parser=new JSONParser();
 		Object[][] obj=null;
+		Map<String,Object> map=null;
 		try(FileReader fileReader=new FileReader("users.json")){
 			Object object=parser.parse(fileReader);
 			JSONArray usersArrays=(JSONArray) object;
 			List<String> usersList=new ArrayList<String>();
 			for(Object data:usersArrays) {
-				log.info(data.toString());
+				//log.info(data.toString());
 				usersList.add(data.toString());
 			}
 			usersList.stream().forEach(System.out::println);
 			ObjectMapper mapper=new ObjectMapper();
-			log.info(""+usersList.size());
-			Map<String,Object> map=null;
-			obj = new Object[usersList.size()][2];
+			//log.info(""+usersList.size());
+			
+			//obj = new Object[usersList.size()][2];
 			int i=0;
+			map=new HashMap<String,Object>();
 			for(String user:usersList)
 			{
-			  map=mapper.readValue(user, Map.class);
-			  obj[i][1]=map;
-			  log.info(map.values().toString());
+			  map.put(String.valueOf(i),mapper.readValue(user, Map.class));
+			//  obj[i][1]=map;
+			 // log.info(map.values().toString());
 			  i++;
 			}
 			
@@ -104,7 +124,7 @@ public class GoogleAccountTest {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return obj;
+		return map;
 	}
 
     @AfterTest
