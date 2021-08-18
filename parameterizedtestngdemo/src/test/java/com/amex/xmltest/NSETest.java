@@ -60,22 +60,22 @@ public class NSETest {
 		webDriver=new ChromeDriver();			
 	}
 	@Test(dataProvider = "companyData")
-	public void nseReportTest( String v1,String v2) {
+	public void nseReportTest( String v1) {
 		webDriver.get(nseUrl);
 		webDriver.manage().window().maximize();
 		WebDriverWait wait=new WebDriverWait(webDriver,10);
 		//wait.until(ExpectedConditions.visibilityOfElementLocated();
 		log.info(webDriver.getTitle());
-		log.info(v2);
-		webDriver.findElement(By.name("q")).sendKeys(v2);
+		log.info(v1);
+		webDriver.findElement(By.name("q")).sendKeys(v1);
 	}
 	
 	@DataProvider(name="companyData")
-	public Object[][] readXMLData() {
+	public Object[] readXMLData() {
 		 // Instantiate the Factory
 	      DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
-	      String[][] companyList=null;
-	      Object[][] compList=null;
+	      String[] companyList=null;
+	      Object[] compList=null;
 	      try {
 
 	          // optional, but recommended
@@ -94,7 +94,7 @@ public class NSETest {
 	          // get <staff>
 	          NodeList list = doc.getElementsByTagName("company");
 
-	          companyList=new String[list.getLength()][2];
+	          companyList=new String[list.getLength()];
 	          for (int temp = 0; temp < list.getLength(); temp++) {
 
 	              Node node = list.item(temp);
@@ -113,7 +113,7 @@ public class NSETest {
 	                  log.info("Company Id : " +sno);
 	                 log.info("Symbol : " +symbol);
 	                  log.info("Name : " +name);
-	                  companyList[temp][1]=name;
+	                  companyList[temp]=name;
 	                  
 	              }
 	          }
