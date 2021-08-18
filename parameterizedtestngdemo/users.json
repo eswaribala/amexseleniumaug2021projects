@@ -1,0 +1,18 @@
+[
+  {
+    "firstName":"user1",
+    "lastName":"user11",
+    "userName":"user100",
+    "password":"Test@123!",
+    "confirmPassword":"Test@123!"
+  },
+  {
+  "firstName":"user2",
+    "lastName":"user22",
+    "userName":"user200",
+    "password":"Test@123!",
+    "confirmPassword":"Test@123!"
+  }
+
+
+]
