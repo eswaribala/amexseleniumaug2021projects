@@ -56,6 +56,22 @@ public class WeatherTest {
 		Assert.assertEquals(200, response.getStatusCode()); 
 	}
 	
+	//Assert.assertEquals(statusLine /*actual value*/, "HTTP/1.1 200 OK" /
+	@Test(dataProvider = "cityDataProvider")
+	public void statusLineTest(String v1) {		
+		RequestSpecification httpRequest=RestAssured.given();
+		Response response=httpRequest.request(Method.GET,v1);		
+		Assert.assertEquals("HTTP/1.1 200 OK", response.getStatusLine()); 
+	}
+	
+	@Test(dataProvider = "cityDataProvider")
+	public void contentTypeTest(String v1) {		
+		RequestSpecification httpRequest=RestAssured.given();
+		Response response=httpRequest.request(Method.GET,v1);		
+		//log.info(response.getHeader("Content-Type"));
+		Assert.assertTrue(response.getHeader("Content-Type").contains("application/json")); 
+	}
+	
 	
 	@DataProvider(name="cityDataProvider")
 	public Object[] getCityDataAsDataProvider(){
