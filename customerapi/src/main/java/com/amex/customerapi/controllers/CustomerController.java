@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -24,7 +25,7 @@ public class CustomerController {
     
     //post
     @PostMapping({"/v1.0", "/v1.1"})
-
+    @CrossOrigin("*")
     public ResponseEntity<?> addCustomer(@RequestBody Customer customer){
     	
     	Customer customerObj=this.customerService.addCustomer(customer);
@@ -38,10 +39,12 @@ public class CustomerController {
     }
     
     @GetMapping({"/v1.0", "/v1.1"})
+    @CrossOrigin("*")
     public List<Customer> getCustomers(){
     	return this.customerService.getAllCustomers();
     }
     @GetMapping({"/v1.0/{customerId}", "/v1.1/customerId"})
+    @CrossOrigin("*")
     public ResponseEntity<?> getCustomerById(@PathVariable("customerId") long customerId) {
     	Customer customerObj=this.customerService.getCustomerById(customerId);
     	if(customerObj!=null) {
@@ -56,6 +59,7 @@ public class CustomerController {
     
     
     @DeleteMapping({"/v1.0/{customerId}", "/v1.1/customerId"})
+    @CrossOrigin("*")
     public ResponseEntity<?> deleteCustomerById(@PathVariable("customerId") long customerId) {
     	boolean status=this.customerService.deleteCustomerById(customerId);
     	if(status) {

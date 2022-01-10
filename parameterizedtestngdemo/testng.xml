@@ -5,7 +5,7 @@
   <parameter name="searchKey1" value="India" />
   <parameter name="searchKey2" value="UK" />
   <parameter name="data" value="{4,5}"/>   
-  <test thread-count="5" name="Test">
+  <test parallel="true" thread-count="5" name="Test">
   <classes>
   <class name="com.amex.parameterizedtests.DataProviderTest">
   

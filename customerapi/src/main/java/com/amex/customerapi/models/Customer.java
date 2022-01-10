@@ -21,16 +21,21 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name="Customer")
+@Table(name="Amex_Customer")
 public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="Customer_Id")
     @ApiModelProperty(position = 1, required = true, hidden=true, notes = "Auto generated column")
 	private long customerId;
-    @Column(name="Customer_Name",nullable = false,length = 45)
+    @Column(name="First_Name",nullable = false,length = 45)
     @ApiModelProperty(example = "Param")
-	private String name;
+	private String firstName;
+    
+    @Column(name="Last_Name",nullable = false,length = 45)
+    @ApiModelProperty(example = "Bala")
+	private String lastName;
+    
     @DateTimeFormat(iso = ISO.DATE)
     @Column(name="DOB")
     @ApiModelProperty(example = "1970-12-02")

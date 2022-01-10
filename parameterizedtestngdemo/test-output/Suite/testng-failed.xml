@@ -5,6 +5,10 @@
   <parameter name="author" value="param"/>
   <parameter name="searchKey1" value="India"/>
   <parameter name="searchKey2" value="UK"/>
+  <listeners>
+    <listener class-name="org.uncommons.reportng.HTMLReporter"/>
+    <listener class-name="org.uncommons.reportng.JUnitXMLReporter"/>
+  </listeners>
   <test thread-count="5" name="Test(failed)">
     <classes>
       <class name="com.amex.parameterizedtests.DataProviderTest">

@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="12" passed="12">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="5097" started-at="2021-08-19T16:49:43 IST" finished-at="2021-08-19T16:49:48 IST">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="5097" started-at="2021-08-19T16:49:43 IST" finished-at="2021-08-19T16:49:48 IST">
+      <class name="com.amex.restassureddemo.weathertests.JSONPlaceHolderTest">
+        <test-method status="PASS" signature="getCustomerByQueryParamTest(java.lang.Object)[pri:0, instance:com.amex.restassureddemo.weathertests.JSONPlaceHolderTest@27fe3806]" name="getCustomerByQueryParamTest" duration-ms="2599" started-at="2021-08-19T16:49:44 IST" data-provider="customerDataProvider" finished-at="2021-08-19T16:49:46 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[{"PASSWORD":"1234!","CUSTOMER_ID":"68195","ACCOUNT_NO":"1"}]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getCustomerByQueryParamTest -->
+        <test-method status="PASS" signature="getUserByPathParamTest(java.lang.String)[pri:0, instance:com.amex.restassureddemo.weathertests.JSONPlaceHolderTest@27fe3806]" name="getUserByPathParamTest" duration-ms="268" started-at="2021-08-19T16:49:47 IST" data-provider="userDataProvider" finished-at="2021-08-19T16:49:47 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[1.0]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getUserByPathParamTest -->
+        <test-method status="PASS" signature="getUserByPathParamTest(java.lang.String)[pri:0, instance:com.amex.restassureddemo.weathertests.JSONPlaceHolderTest@27fe3806]" name="getUserByPathParamTest" duration-ms="163" started-at="2021-08-19T16:49:47 IST" data-provider="userDataProvider" finished-at="2021-08-19T16:49:47 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[2.0]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getUserByPathParamTest -->
+        <test-method status="PASS" signature="getUserByPathParamTest(java.lang.String)[pri:0, instance:com.amex.restassureddemo.weathertests.JSONPlaceHolderTest@27fe3806]" name="getUserByPathParamTest" duration-ms="132" started-at="2021-08-19T16:49:47 IST" data-provider="userDataProvider" finished-at="2021-08-19T16:49:47 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[3.0]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getUserByPathParamTest -->
+        <test-method status="PASS" signature="getUserByPathParamTest(java.lang.String)[pri:0, instance:com.amex.restassureddemo.weathertests.JSONPlaceHolderTest@27fe3806]" name="getUserByPathParamTest" duration-ms="131" started-at="2021-08-19T16:49:47 IST" data-provider="userDataProvider" finished-at="2021-08-19T16:49:47 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[4.0]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getUserByPathParamTest -->
+        <test-method status="PASS" signature="getUserByPathParamTest(java.lang.String)[pri:0, instance:com.amex.restassureddemo.weathertests.JSONPlaceHolderTest@27fe3806]" name="getUserByPathParamTest" duration-ms="227" started-at="2021-08-19T16:49:47 IST" data-provider="userDataProvider" finished-at="2021-08-19T16:49:48 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[5.0]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getUserByPathParamTest -->
+        <test-method status="PASS" signature="getUserByPathParamTest(java.lang.String)[pri:0, instance:com.amex.restassureddemo.weathertests.JSONPlaceHolderTest@27fe3806]" name="getUserByPathParamTest" duration-ms="139" started-at="2021-08-19T16:49:48 IST" data-provider="userDataProvider" finished-at="2021-08-19T16:49:48 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[6.0]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getUserByPathParamTest -->
+        <test-method status="PASS" signature="getUserByPathParamTest(java.lang.String)[pri:0, instance:com.amex.restassureddemo.weathertests.JSONPlaceHolderTest@27fe3806]" name="getUserByPathParamTest" duration-ms="118" started-at="2021-08-19T16:49:48 IST" data-provider="userDataProvider" finished-at="2021-08-19T16:49:48 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[7.0]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getUserByPathParamTest -->
+        <test-method status="PASS" signature="getUserByPathParamTest(java.lang.String)[pri:0, instance:com.amex.restassureddemo.weathertests.JSONPlaceHolderTest@27fe3806]" name="getUserByPathParamTest" duration-ms="155" started-at="2021-08-19T16:49:48 IST" data-provider="userDataProvider" finished-at="2021-08-19T16:49:48 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[8.0]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getUserByPathParamTest -->
+        <test-method status="PASS" signature="getUserByPathParamTest(java.lang.String)[pri:0, instance:com.amex.restassureddemo.weathertests.JSONPlaceHolderTest@27fe3806]" name="getUserByPathParamTest" duration-ms="136" started-at="2021-08-19T16:49:48 IST" data-provider="userDataProvider" finished-at="2021-08-19T16:49:48 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[9.0]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getUserByPathParamTest -->
+        <test-method status="PASS" signature="getUserByPathParamTest(java.lang.String)[pri:0, instance:com.amex.restassureddemo.weathertests.JSONPlaceHolderTest@27fe3806]" name="getUserByPathParamTest" duration-ms="117" started-at="2021-08-19T16:49:48 IST" data-provider="userDataProvider" finished-at="2021-08-19T16:49:48 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[10.0]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getUserByPathParamTest -->
+        <test-method status="PASS" signature="getUsersTest()[pri:0, instance:com.amex.restassureddemo.weathertests.JSONPlaceHolderTest@27fe3806]" name="getUsersTest" duration-ms="123" started-at="2021-08-19T16:49:48 IST" finished-at="2021-08-19T16:49:48 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getUsersTest -->
+      </class> <!-- com.amex.restassureddemo.weathertests.JSONPlaceHolderTest -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>

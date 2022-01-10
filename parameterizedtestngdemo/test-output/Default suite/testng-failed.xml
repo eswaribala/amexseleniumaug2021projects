@@ -3,13 +3,13 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.amex.newtours.NewToursExcelRegisterTest">
+      <class name="com.amex.dbtests.NSEDBTest">
         <methods>
-          <include name="testDataProviderRegister"/>
           <include name="afterTest"/>
           <include name="beforeTest"/>
+          <include name="nseReportTest"/>
         </methods>
-      </class> <!-- com.amex.newtours.NewToursExcelRegisterTest -->
+      </class> <!-- com.amex.dbtests.NSEDBTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
