@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<companies>
+<company>
+<sno>1</sno>
+<symbol>20MICRONS</symbol>
+<name>20 Microns Limited</name>
+
+</company>
+<company>
+<sno>2</sno>
+<symbol>3IINFOTECH</symbol>
+<name>3i Infotech Limited</name>
+
+</company>
+<company>
+<sno>3</sno>
+<symbol>3MINDIA</symbol>
+<name>3M India Limited</name>
+
+</company>
+<company>
+<sno>4</sno>
+<symbol>ABAN</symbol>
+<name>Aban Offshore Limited</name>
+
+</company>
+
+</companies>
