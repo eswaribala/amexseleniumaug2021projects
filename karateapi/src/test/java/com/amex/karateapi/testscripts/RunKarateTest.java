@@ -12,7 +12,7 @@ import io.cucumber.junit.CucumberOptions;
 @CucumberOptions(plugin = {"pretty","html:target/cucumber-reports","json:target/cucumber.json"},features = {
 		"src/test/java/com/amex/karateapi/testscripts/userDetails.feature"
 		},glue="com/amex/karateapi/testscripts")
-public class TestRunner 
+public class RunKarateTest 
 {
 	
 }
