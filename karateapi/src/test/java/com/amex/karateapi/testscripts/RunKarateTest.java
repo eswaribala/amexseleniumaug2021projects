@@ -8,6 +8,7 @@ import io.cucumber.junit.CucumberOptions;
 
 
 
+
 @RunWith(Karate.class)
 @CucumberOptions(plugin = {"pretty","html:target/cucumber-reports","json:target/cucumber.json"},features = {
 		"src/test/java/com/amex/karateapi/testscripts/userDetails.feature"
