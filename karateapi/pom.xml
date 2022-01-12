@@ -16,6 +16,15 @@
         <version>0.9.5</version>
         <scope>test</scope>
 </dependency>
+
+<!-- Optional -->
+<!-- https://mvnrepository.com/artifact/net.masterthought/cucumber-reporting -->
+<dependency>
+    <groupId>net.masterthought</groupId>
+    <artifactId>cucumber-reporting</artifactId>
+    <version>5.6.1</version>
+</dependency>
+
   </dependencies>
   <build>
   <plugins>
